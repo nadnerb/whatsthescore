@@ -8,6 +8,6 @@ class Game < ActiveRecord::Base
   end
 
   def score_url team
-  	"games/#{id}/#{team.id}"
+  	"/games/#{team.to_s}/#{id}"
   end
 end
