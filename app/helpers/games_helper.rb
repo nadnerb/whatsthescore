@@ -1,5 +1,5 @@
 Whatsthescore::App.helpers do
-  def score game, team
-    Oj.dump({ "score" => game.score, "status" => "continue", "encouragement" => "Less hand waving, more hitting",  "scoring_team" => "team_a" })
+  def score_response game, team
+    Oj.dump({ "score" => game.score, "status" => game.status, "encouragement" => "Less hand waving, more hitting",  "scoring_team" => team.name })
   end
 end

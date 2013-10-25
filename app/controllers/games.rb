@@ -1,24 +1,5 @@
 Whatsthescore::App.controllers :games do
 
-  # get :index, :map => '/foo/bar' do
-  #   session[:foo] = 'bar'
-  #   render 'index'
-  # end
-
-  # get :sample, :map => '/sample/url', :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
-
-  # get :foo, :with => :id do
-  #   'Maps to url '/foo/#{params[:id]}''
-  # end
-
-  # get '/example' do
-  #   'Hello world!'
-  # end
-
   get :index do
     @games = Game.all
     render 'games/index'
@@ -44,12 +25,12 @@ Whatsthescore::App.controllers :games do
   post :team_a, :with => :id do
     game = Game.find(params[:id])
     game.score_team_a
-    score game, :team_a
+    score_response game, game.team_a
   end
 
   post :team_b, :with => :id do
     game = Game.find(params[:id])
     game.score_team_b
-    score game, :team_b
+    score_response game, game.team_b
   end
 end
