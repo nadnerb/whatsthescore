@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "games", :force => true do |t|
     t.string   "key"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(:version => 4) do
   create_table "players_teams", :force => true do |t|
     t.integer "team_id"
     t.integer "player_id"
+  end
+
+  create_table "points", :force => true do |t|
+    t.integer "team_id"
+    t.integer "game_id"
   end
 
   create_table "teams", :force => true do |t|
