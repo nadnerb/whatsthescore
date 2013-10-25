@@ -41,11 +41,15 @@ Whatsthescore::App.controllers :games do
     render 'games/create'
   end
 
-  post :team_b, :with => :id do
-    score :team_b
+  post :team_a, :with => :id do
+    game = Game.find(params[:id])
+    game.score_team_a
+    score game, :team_a
   end
 
-  post :team_a, :with => :id do
-    score :team_a
+  post :team_b, :with => :id do
+    game = Game.find(params[:id])
+    game.score_team_b
+    score game, :team_b
   end
 end
