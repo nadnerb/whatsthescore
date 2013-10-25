@@ -33,7 +33,7 @@ Whatsthescore::App.controllers :games do
   post :create do
     @game = Game.create(key: SecureRandom.uuid)
 
-    render 'game/create'
+    render 'games/create'
   end
 
 end

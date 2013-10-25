@@ -58,5 +58,6 @@ module Whatsthescore
     #     render 'errors/505'
     #   end
     #
+    #enable :allow_disabled_csrf
   end
 end
