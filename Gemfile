@@ -23,6 +23,7 @@ gem 'rabl'
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.4'
+gem 'weary'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
