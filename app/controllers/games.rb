@@ -31,7 +31,13 @@ Whatsthescore::App.controllers :games do
   end
 
   post :create do
-    @game = Game.create(key: SecureRandom.uuid)
+
+    players = Oj.load(request.body)['players']
+
+    half = (players.length/BigDecimal(2)).round(0, BigDecimal::ROUND_UP).to_i
+    players = players.each_slice(half).to_a
+
+    @game = Game.create(key: SecureRandom.uuid, team_a: Team.from_players(players[0]), team_b: Team.from_players(players[1]))
 
     render 'games/create'
   end

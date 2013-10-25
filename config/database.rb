@@ -14,20 +14,31 @@
 #   }
 #
 ActiveRecord::Base.configurations[:development] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'whatsthescore_development.db')
+  :adapter   => 'postgresql',
+  :database  => 'whatsthescore_development',
+  :username  => 'whatsthescore',
+  :password  => 'thescore',
+  :host      => 'localhost',
+  :port      => 5432
 
 }
 
 ActiveRecord::Base.configurations[:production] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'whatsthescore_production.db')
-
+  :adapter   => 'postgresql',
+  :database  => 'whatsthescore_production',
+  :username  => 'root',
+  :password  => '',
+  :host      => 'localhost',
+  :port      => 5432
 }
 
 ActiveRecord::Base.configurations[:test] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'whatsthescore_test.db')
+  :adapter   => 'postgresql',
+  :database  => 'whatsthescore_test',
+  :username  => 'root',
+  :password  => '',
+  :host      => 'localhost',
+  :port      => 5432
 
 }
 

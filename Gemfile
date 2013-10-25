@@ -7,23 +7,24 @@ source 'https://rubygems.org'
 # gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
 
-# Optional JSON codec (faster performance)
-# gem 'oj'
-
 # Project requirements
 gem 'rake'
 
 # Component requirements
+gem 'pg'
 gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
-gem 'sqlite3'
 
 gem 'rabl'
+gem 'oj'
+
 # Test requirements
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.4'
 gem 'weary'
+
+gem 'pry'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

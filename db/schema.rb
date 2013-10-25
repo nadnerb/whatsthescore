@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(:version => 3) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "players_teams", :force => true do |t|
+    t.integer "team_id"
+    t.integer "player_id"
+  end
+
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
