@@ -1,3 +1,3 @@
 collection @games
 
-attributes :id, :key
+attributes :id, :key , :team_a, :team_b

@@ -31,7 +31,6 @@ Whatsthescore::App.controllers :games do
   end
 
   post :create do
-
     players = Oj.load(request.body)['players']
 
     half = (players.length/BigDecimal(2)).round(0, BigDecimal::ROUND_UP).to_i
