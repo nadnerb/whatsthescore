@@ -7,4 +7,7 @@ class Game < ActiveRecord::Base
     "/games/#{id}/show"
   end
 
+  def score_url team
+  	"games/#{id}/#{team.id}"
+  end
 end
