@@ -48,13 +48,4 @@ Whatsthescore::App.controllers :games do
   post :team_a, :with => :id do
     score :team_a
   end
-
-  def score team
-    '''{ 
-        \"score\":\"1/10\",
-        \"status\":\"continue\",
-        \"encouragement\":\"Less hand waving, more hitting\".
-        \"scoring_team\":\"team_a\"
-    }'''
-  end
 end
