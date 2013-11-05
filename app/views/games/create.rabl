@@ -1,6 +1,6 @@
 object @game
 
-attributes :id, :key, :url
+attributes :id, :key, :url, :undo_url
 
 child :team_a => :team_a do |team|
   attributes :id

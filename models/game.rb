@@ -2,6 +2,7 @@ class Game < ActiveRecord::Base
 
   belongs_to :team_a, class_name: 'Team'
   belongs_to :team_b, class_name: 'Team'
+  has_many :points
 
   def url
     "/games/#{id}/show"
@@ -9,6 +10,10 @@ class Game < ActiveRecord::Base
 
   def score_url team
     "/games/#{team.to_s}/#{id}"
+  end
+
+  def undo_url
+    "/games/undo/#{id}"
   end
 
   def score_team_a
@@ -19,12 +24,16 @@ class Game < ActiveRecord::Base
     ::Point.create(game: self, team: self.team_b) unless status == 'Game over'
   end
 
+  def undo
+    points.last.delete
+  end
+
   def score
-    "#{Point.score(self.id, team_a.id).length}/#{Point.score(self.id, team_b.id).length}"
+    "#{Point.score(self.id, team_a.id).length} #{Point.score(self.id, team_b.id).length}"
   end
 
   def status
-    (Point.score(self.id, team_a.id).length == 11 or Point.score(self.id, team_b.id).length == 11) ? 'Game over' : 'Continue'
+    (Point.score(self.id, team_a.id).length == 21 or Point.score(self.id, team_b.id).length == 21) ? 'Game over' : 'Continue'
   end
 
   def instructions
@@ -41,12 +50,12 @@ class Game < ActiveRecord::Base
 
   def encouragement
     encouragement = ''
-    if total_points == 7
-      encouragement = 'Less hand waving more hitting'
-    end
-    if total_points == 12
-      encouragement = 'its not too late to forfeit'
-    end
+    # if total_points == 7
+    #   encouragement = 'Less hand waving more hitting'
+    # end
+    # if total_points == 12
+    #   encouragement = 'its not too late to forfeit'
+    # end
     encouragement
   end
 

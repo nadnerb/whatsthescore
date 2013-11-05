@@ -25,12 +25,18 @@ Whatsthescore::App.controllers :games do
   post :team_a, :with => :id do
     game = Game.find(params[:id])
     game.score_team_a
-    score_response game, game.team_a
+    score_response game
   end
 
   post :team_b, :with => :id do
     game = Game.find(params[:id])
     game.score_team_b
-    score_response game, game.team_b
+    score_response game
+  end
+
+  post :undo, :with => :id do
+    game = Game.find(params[:id])
+    game.undo
+    score_response game
   end
 end
