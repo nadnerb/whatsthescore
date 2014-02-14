@@ -19,7 +19,8 @@ Whatsthescore::App.controllers :games do
 
     @game = Game.create(key: SecureRandom.uuid, team_a: Team.from_players(players[0]), team_b: Team.from_players(players[1]))
 
-    render 'games/create'
+    @game.extend(GameRepresenter)
+    @game.to_json
   end
 
   post :team_a, :with => :id do

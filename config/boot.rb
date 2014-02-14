@@ -34,10 +34,12 @@ Bundler.require(:default, PADRINO_ENV)
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  Padrino.dependency_paths << Padrino.root('app/representers/*.rb')
   Rabl.configure do |config|
     config.include_json_root = false
   end
 end
+
 
 ##
 # Add your after (RE)load hooks here

@@ -17,12 +17,14 @@ gem 'activerecord', '>= 3.1', :require => 'active_record'
 
 gem 'rabl'
 gem 'oj'
+gem 'roar'
 
 # Test requirements
 
 # Padrino Stable Gem
 gem 'padrino', '0.11.4'
 gem 'weary'
+gem 'bazaar'
 
 gem 'pry'
 

@@ -4,18 +4,6 @@ class Game < ActiveRecord::Base
   belongs_to :team_b, class_name: 'Team'
   has_many :points
 
-  def url
-    "/games/#{id}/show"
-  end
-
-  def score_url team
-    "/games/#{team.to_s}/#{id}"
-  end
-
-  def undo_url
-    "/games/undo/#{id}"
-  end
-
   def score_team_a
     Point.create(game: self, team: self.team_a) unless status == 'Game over'
   end
